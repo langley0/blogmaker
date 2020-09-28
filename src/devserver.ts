@@ -7,7 +7,7 @@ const app = express();
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.send(mainpage());
+  res.send(mainpage('public'));
 });
 
 app.get('/:post', (req, res, next) => {

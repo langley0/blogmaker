@@ -91,7 +91,7 @@ export default function post(srcDir: string, root: string) {
           </header>
           <div class="articlebox">
             <div class="markdown-body">
-            ${loaded.html}
+${loaded.html.split('\n').map((line) => `            ${line}`).join('\n')})}
             </div>
           </div>
         </div>

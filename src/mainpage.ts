@@ -2,15 +2,14 @@ import fs from 'fs';
 import path from 'path';
 import { readPost } from './post';
 
-export default function mainpage() {
-  const root = 'public';
+export default function mainpage(root: string) {
   if (fs.existsSync(root) === false) {
-    throw Error('invalid target directory: public');
+    throw Error(`invalid target directory: ${root}`);
   }
 
   const posts = fs.readdirSync(root)
     .filter((srcDir) => fs.lstatSync(path.join(root, srcDir)).isDirectory())
-    .map((srcDir) => readPost(srcDir, 'public'))
+    .map((srcDir) => readPost(srcDir, root))
     .reverse();
 
   return `<!DOCTYPE html>
