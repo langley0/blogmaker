@@ -31,15 +31,14 @@ jobs:
         run: npm run build          
       
       - name: build html
-        run: node ./dist/src/build.js public langley0.github.io
+        run: node ./dist/src/build.js public temp
       
-      - name: push html
-        run: |
-          cd langley0.github.io
-          git config --global user.email "langley0@naver.com"
-          git config --global user.name "langley0"
-          git checkout master
-          git add -A
-          git commit -m 'update post'
-          cd ..
-          git submodule foreach git push
+      - name: push to other repo
+        uses: langley0/langley0.github.io@master
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'temp'
+          destination-github-username: 'langley0'
+          destination-repository-name: 'langley0.github.io'
+          user-email: 'langley0@naver.com'
