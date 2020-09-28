@@ -41,4 +41,4 @@ jobs:
           git checkout master
           git add -A
           git commit -m 'update post'
-          git push
+          git push git:${{ secrets.GITHUB_TOKEN }}@github.com:langley0/langley0.github.io.git
