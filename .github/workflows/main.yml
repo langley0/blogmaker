@@ -28,5 +28,14 @@ jobs:
         run: npm install
       
       - name: build typescript
-        run: npm run build
-          
+        run: npm run build          
+      
+      - name: build html
+        run: node ./dist/src/build.js public langley0.github.io
+      
+      - name: push html
+        run: |
+          cd langley0.github.io
+          git add -A
+          git commit -m 'update post'
+          git push
