@@ -8,6 +8,7 @@ export default function mainpage(root: string) {
   }
 
   const posts = fs.readdirSync(root)
+    .filter((srcDir) => srcDir !== '.git')
     .filter((srcDir) => fs.lstatSync(path.join(root, srcDir)).isDirectory())
     .map((srcDir) => readPost(srcDir, root))
     .reverse();
