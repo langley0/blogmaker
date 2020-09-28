@@ -35,6 +35,9 @@ jobs:
           git clone https://langley0:${{ secrets.GITHUB_TOKEN }}@github.com/langley0/langley0.github.io
           cd langley0.github.io
           git checkout master
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          git config --global credential.helper store
           cd ..
           
       - name: build html
