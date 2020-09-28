@@ -38,6 +38,7 @@ jobs:
           cd langley0.github.io
           git config --global user.email "langley0@naver.com"
           git config --global user.name "langley0"
+          git checkout master
           git add -A
           git commit -m 'update post'
           git push
