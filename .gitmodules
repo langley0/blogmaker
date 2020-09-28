@@ -1,3 +1,6 @@
 [submodule "markdown"]
 	path = markdown
 	url = https://github.com/langley0/markdown.git
+[submodule "langley0.github.io"]
+	path = langley0.github.io
+	url = https://github.com/langley0/langley0.github.io.git
