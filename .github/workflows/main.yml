@@ -34,11 +34,7 @@ jobs:
         run: node ./dist/src/build.js public temp
       
       - name: push to other repo
-        uses: langley0/langley0.github.io@master
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source-directory: 'temp'
-          destination-github-username: 'langley0'
-          destination-repository-name: 'langley0.github.io'
-          user-email: 'langley0@naver.com'
+        run: |
+          git clone https://langley0:${{ secrets.GITHUB_TOKEN }}@github.com/langley0/langley0.github.io
+          git checkout master
+        
