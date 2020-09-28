@@ -30,11 +30,22 @@ jobs:
       - name: build typescript
         run: npm run build          
       
-      - name: build html
-        run: node ./dist/src/build.js public temp
-      
-      - name: push to other repo
+      - name: get target repo
         run: |
           git clone https://langley0:${{ secrets.GITHUB_TOKEN }}@github.com/langley0/langley0.github.io
+          cd langley0.github.io
           git checkout master
+          cp ..
+          
+      - name: build html
+        run: node ./dist/src/build.js public langley0.github.io
+        
+      - name: push result
+        run: |
+          cd langley0.github.io
+          git add -A
+          git commit -m 'update post'
+          git push origin master
+      
+
         
