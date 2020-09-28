@@ -28,6 +28,16 @@ fs.writeFileSync(
   'utf-8',
 );
 
+const rootAssets = fs.readdirSync(srcDir)
+  .filter((subDir) => !fs.lstatSync(path.join(srcDir, subDir)).isDirectory());
+
+rootAssets.forEach((asset) => {
+  fs.copyFileSync(
+    path.join(srcDir, asset),
+    path.join(dstDir, asset),
+  );
+});
+
 // 각각의 파일목록을 가져와서 post 를 기록한다
 const subDirs = fs.readdirSync(srcDir)
   .filter((subDir) => fs.lstatSync(path.join(srcDir, subDir)).isDirectory());
