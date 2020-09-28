@@ -36,6 +36,8 @@ jobs:
       - name: push html
         run: |
           cd langley0.github.io
+          git config --global user.email "langley0@naver.com"
+          git config --global user.name "langley0"
           git add -A
           git commit -m 'update post'
           git push
