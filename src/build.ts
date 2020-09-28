@@ -40,7 +40,7 @@ rootAssets.forEach((asset) => {
 
 // 각각의 파일목록을 가져와서 post 를 기록한다
 const subDirs = fs.readdirSync(srcDir)
-  .filter((subDir) => subDir !== '.git')
+  .filter((subDir) => subDir !== '.git' && subDir !== '.github')
   .filter((subDir) => fs.lstatSync(path.join(srcDir, subDir)).isDirectory());
 
 subDirs.forEach((subDir) => {
