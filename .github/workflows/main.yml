@@ -35,7 +35,7 @@ jobs:
           git clone https://langley0:${{ secrets.GITHUB_TOKEN }}@github.com/langley0/langley0.github.io
           cd langley0.github.io
           git checkout master
-          cp ..
+          cd ..
           
       - name: build html
         run: node ./dist/src/build.js public langley0.github.io
