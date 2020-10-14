@@ -31,7 +31,6 @@ export default function mainpage(root: string) {
           <br/>
         </div>
         <ul class="post-list">
-        
   ${posts.map((post) => {
     const postUrl = `./${post.path}/`;
     return `
@@ -48,7 +47,7 @@ export default function mainpage(root: string) {
             </p>
             <hr/>
           </li>`;
-  })}
+  }).join('')}
         </ul>
       </div>
     </div>
