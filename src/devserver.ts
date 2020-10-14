@@ -4,7 +4,7 @@ import mainpage from './mainpage';
 import post from './post';
 
 const app = express();
-const root = '../langley0@github.io';
+const root = '../langley0.github.io';
 
 app.get('/', (req, res) => {
   res.send(mainpage(root));
